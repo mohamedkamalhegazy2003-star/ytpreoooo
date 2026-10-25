@@ -1,11 +1,15 @@
-# Cobalt Opener
+# Cobalt Opener (Cobalt Downloader)
 
-Tiny companion app: receives the link from the YouTube (Morphe/ReVanced) **Download** button and opens
-`https://cobalt.canine.tools/#<link>`, which fills the link in and starts the download.
+Receives the link from the YouTube (Morphe/ReVanced) **Download** button, asks the Cobalt API for a
+**1080p** mp4 (h264 + aac) and saves it to **Movies/Cobalt** with the system download manager, so it
+plays offline. If the API is unavailable (e.g. the instance needs a key), it opens Cobalt in the browser instead.
 
 ## Use
-1. Run the **Build Cobalt Opener** workflow (Actions tab) and install the APK from the artifact.
-2. In patched YouTube: Settings → ReVanced/Morphe → Downloads → set **External downloader package name** to `com.cobalt.opener` (enable external downloader).
-3. Press Download on any video → Cobalt opens in your browser.
+1. Run the **Build Cobalt Opener** workflow and install the APK from Artifacts (Android 10+).
+2. In patched YouTube: Settings -> Downloads -> enable external downloader, package name `com.cobalt.opener`.
+3. Press Download on a video -> notification shows progress -> file appears in Movies/Cobalt.
 
-Change the instance in `app/src/main/res/values/strings.xml` (`cobalt_instance`).
+## Settings (`app/src/main/res/values/strings.xml`)
+- `cobalt_instance` - Cobalt instance URL
+- `cobalt_api_key` - API key, only if the instance requires one
+- `video_quality` - 1080 by default (720, 1440, 2160, max...)

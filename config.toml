@@ -7,7 +7,7 @@ enable-magisk-update = false   # set this to false if you do not want to receive
 
 [YouTube-Morphe]
 app-name = "YouTube"
-patches-source = "MorpheApp/morphe-patches"
+patches-source = "mohamedkamalhegazy2003-star/morphe-patches"
 cli-source = "MorpheApp/morphe-cli"
 rv-brand = "Morphe"
 build-mode = "apk"

@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Cobalt Downloader</string>
-    <!-- Change this to use another Cobalt instance. No trailing slash. -->
+    <!-- Cobalt instance (no trailing slash). -->
     <string name="cobalt_instance" translatable="false">https://cobalt.canine.tools</string>
+    <!-- Optional: API key if the instance requires one (sent as "Authorization: Api-Key ..."). Leave empty if not needed. -->
+    <string name="cobalt_api_key" translatable="false"></string>
+    <!-- Max video quality: 144, 240, 360, 480, 720, 1080, 1440, 2160, max -->
+    <string name="video_quality" translatable="false">1080</string>
 </resources>
