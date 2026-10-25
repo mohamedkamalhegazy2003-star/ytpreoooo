@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Cobalt Downloader</string>
+    <!-- Change this to use another Cobalt instance. No trailing slash. -->
+    <string name="cobalt_instance" translatable="false">https://cobalt.canine.tools</string>
+</resources>
