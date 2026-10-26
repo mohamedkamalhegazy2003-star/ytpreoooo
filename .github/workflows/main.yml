@@ -70,7 +70,7 @@ jobs:
       - name: Check whether anything changed
         id: changed
         run: |
-          if git show origin/update:build.md >prev.md 2>/dev/null && diff -q prev.md build.md >/dev/null; then
+          if [ "${{ github.event_name }}" != "workflow_dispatch" ] && git show origin/update:build.md >prev.md 2>/dev/null && diff -q prev.md build.md >/dev/null; then
             echo "No build changed since the last release. Skipping."
             echo "changed=false" >> $GITHUB_OUTPUT
           else
