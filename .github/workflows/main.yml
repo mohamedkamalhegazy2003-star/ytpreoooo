@@ -64,6 +64,9 @@ jobs:
           URL=$(gh api repos/deniscerri/ytdlnis/releases/latest --jq '[.assets[] | select(.name | endswith(".apk")) | select(.name | test("arm64"))][0].browser_download_url // ([.assets[] | select(.name | endswith(".apk"))][0].browser_download_url)')
           echo "YTDLnis: $URL"
           if [ -n "$URL" ] && [ "$URL" != "null" ]; then curl -sSL -o build/YTDLnis.apk "$URL" || true; fi
+          SEAL=$(gh api repos/JunkFood02/Seal/releases/latest --jq '[.assets[] | select(.name | endswith(".apk")) | select(.name | test("arm64"))][0].browser_download_url // ([.assets[] | select(.name | endswith(".apk"))][0].browser_download_url)')
+          echo "Seal: $SEAL"
+          if [ -n "$SEAL" ] && [ "$SEAL" != "null" ]; then curl -sSL -o build/Seal.apk "$SEAL" || true; fi
           ls -la build
 
       - name: Get output
