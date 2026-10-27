@@ -56,6 +56,16 @@ jobs:
           GITHUB_REPOSITORY: $GITHUB_REPOSITORY
           NEXT_VER_CODE: ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}
 
+      - name: Add YTDLnis to the release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p build
+          URL=$(gh api repos/deniscerri/ytdlnis/releases/latest --jq '[.assets[] | select(.name | endswith(".apk")) | select(.name | test("arm64"))][0].browser_download_url // ([.assets[] | select(.name | endswith(".apk"))][0].browser_download_url)')
+          echo "YTDLnis: $URL"
+          if [ -n "$URL" ] && [ "$URL" != "null" ]; then curl -sSL -o build/YTDLnis.apk "$URL" || true; fi
+          ls -la build
+
       - name: Get output
         id: get_output
         run: |
